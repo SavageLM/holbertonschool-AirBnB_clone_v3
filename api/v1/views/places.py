@@ -65,6 +65,7 @@ def create_place(city_id):
     select_user = storage.get(User, new_dict["user_id"])
     if select_user is None:
         abort(404)
+    new_dict["city_id"] = city_id
     new_place = Place(**new_dict)
     new_place.save()
     return make_response(jsonify(new_place.to_dict()), 201)
