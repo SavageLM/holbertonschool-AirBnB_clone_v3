@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a view for the City object"""
+"""Defines a view for the User object"""
 
 from api.v1.views import app_views
 from flask import jsonify, abort, make_response, request

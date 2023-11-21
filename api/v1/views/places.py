@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a view for the City object"""
+"""Defines a view for the Place object"""
 
 from api.v1.views import app_views
 from flask import jsonify, abort, make_response, request
@@ -38,7 +38,7 @@ def get_place_by_id(place_id):
                  methods=["DELETE"], strict_slashes=False)
 def delete_place(place_id):
     """Deletes an A Place with an ID and returns code 200.
-        Returns 404 code if User not found
+        Returns 404 code if Place not found
     """
     select_place = storage.get(Place, place_id)
     if select_place is None:
