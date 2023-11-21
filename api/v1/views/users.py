@@ -48,8 +48,6 @@ def create_user():
     new_dict = request.get_json(silent=True)
     if new_dict is None:
         return make_response(jsonify({"error": "Not a JSON"}), 400)
-    elif "name" not in new_dict.keys() or new_dict["name"] is None:
-        return make_response(jsonify({"error": "Missing name"}), 400)
     elif "email" not in new_dict.keys() or new_dict["email"] is None:
         return make_response(jsonify({"error": "Missing email"}), 400)
     elif "password" not in new_dict.keys() or new_dict["password"] is None:
