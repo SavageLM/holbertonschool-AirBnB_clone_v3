@@ -55,6 +55,7 @@ def create_city(state_id):
     select_state = storage.get(State, state_id)
     if select_state is None:
         abort(404)
+    new_dict["state_id"] = state_id
     new_city = City(**new_dict)
     new_city.save()
     return make_response(jsonify(new_city.to_dict()), 201)
