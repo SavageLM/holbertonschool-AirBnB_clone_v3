@@ -24,7 +24,8 @@ def error_404():
     return jsonify({"error": "Not found"}), 404
 
 
+host = getenv("HBNB_API_HOST", default="0.0.0.0")
+port = getenv("HBNB_API_PORT", default="5000")
+
 if __name__ == "__main__":
-    host = getenv("HBNB_API_HOST", default="0.0.0.0")
-    port = getenv("HBNB_API_PORT", default="5000")
     app.run(host=host, port=port, threaded=True)
