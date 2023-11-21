@@ -36,10 +36,11 @@ class FileStorage:
 
     def get(self, cls, id):
         """Returns an Object based on name and id"""
-        ob_get = f"{cls.__name__}.{id}"
-        class_list = self.all(cls)
-        if ob_get in class_list.keys():
-            return class_list[ob_get]
+        if cls and id:
+            ob_get = f"{cls.__name__}.{id}"
+            class_list = self.all(cls)
+            if ob_get in class_list.keys():
+                return class_list[ob_get]
         else:
             return None
 
