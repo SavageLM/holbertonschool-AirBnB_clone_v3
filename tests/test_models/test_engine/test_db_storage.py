@@ -95,7 +95,7 @@ class TestFileStorage(unittest.TestCase):
         get_state = models.storage.get(State, trial_state.id)
         self.assertEqual(trial_state, get_state)
         # Testing None return
-        incorrect_state = models.storage.get(State, "s;lakdjfh")
+        incorrect_state = models.storage.get(State, "oiuylfgjkdt")
         self.assertEqual(incorrect_state, None)
 
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
@@ -103,7 +103,7 @@ class TestFileStorage(unittest.TestCase):
         """Tests the count feature class and class = None """
         count_all = models.storage.count()
         count_states = models.storage.count(State)
-        trial_state = State(name="Countopia")
+        trial_state = State(name="Shire")
         trial_state.save()
         self.assertEqual(count_all + 1, models.storage.count())
         self.assertEqual(count_states + 1, models.storage.count(State))
