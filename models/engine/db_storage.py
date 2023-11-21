@@ -53,10 +53,12 @@ class DBStorage:
 
     def get(self, cls, id):
         """Returns an Object based on name and id"""
-        ob_get = f"{cls}.{id}"
-        class_list = self.all(cls)
-        if ob_get in class_list:
-            return class_list[ob_get]
+        if cls and id:
+            ob_get = f"{cls}.{id}"
+            class_list = self.all(cls)
+            if ob_get in class_list:
+                return class_list[ob_get]
+            return class_list.get(ob_get)
         else:
             return None
 
