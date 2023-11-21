@@ -41,7 +41,7 @@ def delete_state(id):
 @app_views.route('/states', methods=["POST"], strict_slashes=False)
 def create_state(id):
     """Creates a State"""
-    new_dict = request.get_json()
+    new_dict = request.get_json(silent=True)
     if new_dict is None:
         return make_response(jsonify({"error": "Not a JSON"}), 400)
     elif "name" not in new_dict.keys() or new_dict["name"] is None:
@@ -54,7 +54,7 @@ def create_state(id):
 @app_views.route("states/<id>", methods=["PUT"], strict_slashes=False)
 def update_state(id):
     """Updates specified State"""
-    new_dict = request.get_json()
+    new_dict = request.get_json(silent=True)
     select_state = storage.get(State, id)
     if new_dict is None:
         return make_response(jsonify({"error": "Not a JSON"}), 400)
