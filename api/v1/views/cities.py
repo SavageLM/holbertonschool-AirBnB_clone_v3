@@ -31,7 +31,7 @@ def get_cities_by_id(city_id):
 
 
 @app_views.route('/cities/<city_id>', methods=["DELETE"], strict_slashes=False)
-def delete_state(city_id):
+def delete_city(city_id):
     """Deletes a City with an ID and returns code 200.
         Returns 404 code if State not found
     """
@@ -43,7 +43,8 @@ def delete_state(city_id):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/states', methods=["POST"], strict_slashes=False)
+@app_views.route('/states/<state_id>/cities',
+                 methods=["POST"], strict_slashes=False)
 def create_city(state_id):
     """Creates a City"""
     new_dict = request.get_json(silent=True)
