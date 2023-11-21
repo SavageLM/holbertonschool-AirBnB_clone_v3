@@ -16,7 +16,8 @@ def get_cities(state_id):
         abort(404)
     cities_list = []
     for cities in storage.all(City).values():
-        cities_list.append(cities.to_dict())
+        if cities.state_id == state_id:
+            cities_list.append(cities.to_dict())
     return jsonify(cities_list)
 
 
@@ -35,7 +36,7 @@ def delete_city(city_id):
     """Deletes a City with an ID and returns code 200.
         Returns 404 code if State not found
     """
-    select_city = storage.get(City, id)
+    select_city = storage.get(City, city_id)
     if select_city is None:
         abort(404)
     storage.delete(select_city)
