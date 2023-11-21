@@ -28,7 +28,7 @@ def get_user_by_id(user_id):
         return jsonify(select_user.to_dict())
 
 
-@app_views.route('/user/<user_id>',
+@app_views.route('/users/<user_id>',
                  methods=["DELETE"], strict_slashes=False)
 def delete_user(user_id):
     """Deletes an A User with an ID and returns code 200.
@@ -59,7 +59,7 @@ def create_user():
     return make_response(jsonify(new_user.to_dict()), 201)
 
 
-@app_views.route("/user/<user_id>",
+@app_views.route("/users/<user_id>",
                  methods=["PUT"], strict_slashes=False)
 def update_user(user_id):
     """Updates specified Amenity"""
