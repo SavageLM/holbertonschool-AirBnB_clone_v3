@@ -39,7 +39,7 @@ def delete_state(id):
 
 
 @app_views.route('/states', methods=["POST"], strict_slashes=False)
-def create_state(id):
+def create_state():
     """Creates a State"""
     new_dict = request.get_json(silent=True)
     if new_dict is None:
